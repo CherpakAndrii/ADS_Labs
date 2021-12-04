@@ -21,37 +21,14 @@ namespace Lab5.GUI
 
         private void Chomp_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void ChooseGmMode(object sender, EventArgs e)
         {
             Button Bt = sender as Button;
             Program.singlePlay = (Bt.Name=="button1");
-            /*button1.Enabled = false;
-            button1.Visible = false;
-            button2.Enabled = false;
-            button2.Visible = false;*/
             ReloadComponent();
-            /*label1.Enabled = false;
-            label1.Visible = false;*/
-        }
-        private void HideAll()
-        {
-            button1.Enabled = false;
-            button1.Visible = false;
-            button2.Enabled = false;
-            button2.Visible = false;
-            button3.Enabled = false;
-            button3.Visible = false;
-            button4.Enabled = false;
-            button4.Visible = false;
-            button5.Enabled = false;
-            button5.Visible = false;
-            button6.Enabled = false;
-            button6.Visible = false;
-            label1.Enabled = false;
-            label1.Visible = false;
         }
 
         private void ChooseSize(object sender, EventArgs e)
@@ -60,14 +37,14 @@ namespace Lab5.GUI
             Program.fieldSize = (Bt.Name=="button3"?5:Bt.Name=="button4"?6:Bt.Name=="button5"?7:8);
             Close();
         }
-        
+
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
             Style.Form1WindowSz = ClientSize;
             Style.UpdateForm1ElementSize();
             UpdateForm1ElementLocation();
         }
-        
+
         private void UpdateForm1ElementLocation(){
             button1.Size = Style.GmModeButtonSz;
             button2.Size = Style.GmModeButtonSz;
@@ -84,7 +61,5 @@ namespace Lab5.GUI
             Style.Relocate(ref button6);
             Style.Relocate(ref label1);
         }
-
-        
     }
 }
