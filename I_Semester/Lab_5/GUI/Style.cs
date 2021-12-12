@@ -1,5 +1,4 @@
 ﻿using System.Drawing;
-using System.Windows.Forms;
 
 namespace Lab5.GUI
 {
@@ -9,43 +8,40 @@ namespace Lab5.GUI
         public static Color ButtonFgColor = Color.AntiqueWhite;
         public static Color LabelBgColor = Color.BlueViolet;
         public static Color LabelFgColor = Color.AntiqueWhite;
+        public static Color EmptyCellColor = Color.AntiqueWhite;
+        public static Color P1SelectedCellColor = Color.DarkBlue;
+        public static Color P1PassiveSelectedCellColor = Color.RoyalBlue;
+        public static Color P2SelectedCellColor = Color.Red;
+        public static Color P2PassiveSelectedCellColor = Color.PaleVioletRed;
+        public static Color PoisonBgColor = Color.Black;
+        public static Font PoisonFont = new ("Comic Sans MS", 12F, FontStyle.Italic, GraphicsUnit.Point, 204);
         public static Size FieldSzButtonSz = new (250, 60);
         public static Size GmModeButtonSz = new (183, 50);
+        public static Size CellSize = new (50, 50);
+        
         public static Size Label1Sz = new (370, 135);
         public static Size Form1WindowSz = new (900, 500);
-        public static int FieldSzButtonX = 325;
         public static Font ButtonFont = new ("Comic Sans MS", 15.75F, FontStyle.Italic, GraphicsUnit.Point, 204);
+        public static Font F1LabelBigFont = new ("Comic Sans MS", 72F, FontStyle.Italic, GraphicsUnit.Point, 204);
+        public static Font F2LabelFont = new ("Comic Sans MS", 25F, FontStyle.Italic, GraphicsUnit.Point, 204);
+
         
         public static void UpdateForm1ElementSize()
         {
-            FieldSzButtonSz = new (getNewForm1ElementWidth(245), getNewForm1ElementHeight(60));
-            GmModeButtonSz = new (getNewForm1ElementWidth(185), getNewForm1ElementHeight(50));
-            Label1Sz = new (getNewForm1ElementWidth(370), getNewForm1ElementHeight(135));
-            FieldSzButtonX = Form1WindowSz.Width / 2 - FieldSzButtonSz.Width / 2;
+            FieldSzButtonSz = new (GetNewForm1ElementWidth(245), GetNewForm1ElementHeight(60));
+            GmModeButtonSz = new (GetNewForm1ElementWidth(185), GetNewForm1ElementHeight(50));
+            Label1Sz = new (GetNewForm1ElementWidth(370), GetNewForm1ElementHeight(135));
+            CellSize = new(GetNewForm1ElementWidth(50), GetNewForm1ElementHeight(50));
         }
 
-        public static int getNewForm1ElementWidth(int w)
+        public static int GetNewForm1ElementWidth(int w)
         {
             return (int)(Form1WindowSz.Width*((double)w/900));
         }
         
-        public static int getNewForm1ElementHeight(int h)
+        public static int GetNewForm1ElementHeight(int h)
         {
             return (int)(Form1WindowSz.Height*((double)h/500));
-        }
-        
-        public static void Relocate(ref Button Element)
-        {
-            int currentX = Element.Location.X;
-            int currentY = Element.Location.Y;
-            Element.Location = new Point(Style.getNewForm1ElementWidth(currentX), Style.getNewForm1ElementHeight(currentY));
-        }
-        
-        public static void Relocate(ref Label Element)
-        {
-            int currentX = Element.Location.X;
-            int currentY = Element.Location.Y;
-            Element.Location = new Point(Style.getNewForm1ElementWidth(currentX), Style.getNewForm1ElementHeight(currentY));
         }
     }
 }

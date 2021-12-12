@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lab5.GUI;
 
@@ -12,16 +9,27 @@ namespace Lab5
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
-        public static bool singlePlay;
-        public static int fieldSize;
+        public static bool SinglePlay, toMenu = true, Form1Closed = false, Form2Closed = false;
+        public static int FieldSize;
+        public static int Difficulty;
         [STAThread]
         static void Main()
         {
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-            MessageBox.Show($"Mode = {(singlePlay?1:2)}, Size = {fieldSize}x{fieldSize-1}");
+            while (!Form1Closed && !Form2Closed)
+            {
+                Form2Closed = true;
+                if (toMenu)
+                {
+                    Form1Closed = true;
+                    Application.Run(new Form1());
+                }
+                toMenu = false;
+                if (!Form1Closed) Application.Run(new Form2());
+               
+            }
         }
     }
 }

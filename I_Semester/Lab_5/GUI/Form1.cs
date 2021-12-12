@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Lab5.GUI
 {
     public partial class Form1 : Form
     {
-        /*private bool singlePlay;
-        private int fieldSize;*/
         public Form1()
         {
             InitializeComponent();
@@ -21,30 +12,56 @@ namespace Lab5.GUI
 
         private void Chomp_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void ChooseGmMode(object sender, EventArgs e)
         {
-            Button Bt = sender as Button;
-            Program.singlePlay = (Bt.Name=="button1");
-            ReloadComponent();
+            Button button = sender as Button;
+            if (button != null)
+            {
+                Program.SinglePlay = (button.Name == "button1");
+                ReloadComponent();
+            }
         }
 
         private void ChooseSize(object sender, EventArgs e)
         {
-            Button Bt = sender as Button;
-            Program.fieldSize = (Bt.Name=="button3"?5:Bt.Name=="button4"?6:Bt.Name=="button5"?7:8);
-            Close();
+            Button button = sender as Button;
+            if (button != null)
+            {
+                Program.FieldSize = (button.Name == "button3" ? 5 :
+                    button.Name == "button4" ? 6 :
+                    button.Name == "button5" ? 7 : 8);
+                if (Program.SinglePlay) ReloadComponent2();
+                else
+                {
+                    Program.Form1Closed = false;
+                    Close();
+                }
+            }
         }
 
+        private void ChooseDifficulty(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                Program.Difficulty = (button.Name == "button7" ? 1 :
+                    button.Name == "button8" ? 2 :
+                    button.Name == "button9" ? 3 : 4);
+            }
+            Program.Form1Closed = false;
+            Close();
+        }
+        
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
             Style.Form1WindowSz = ClientSize;
             Style.UpdateForm1ElementSize();
             UpdateForm1ElementLocation();
         }
-
+        
         private void UpdateForm1ElementLocation(){
             button1.Size = Style.GmModeButtonSz;
             button2.Size = Style.GmModeButtonSz;
@@ -53,13 +70,19 @@ namespace Lab5.GUI
             button5.Size = Style.FieldSzButtonSz;
             button6.Size = Style.FieldSzButtonSz;
             label1.Size = Style.Label1Sz;
-            Style.Relocate(ref button1);
-            Style.Relocate(ref button2);
-            Style.Relocate(ref button3);
-            Style.Relocate(ref button4);
-            Style.Relocate(ref button5);
-            Style.Relocate(ref button6);
-            Style.Relocate(ref label1);
+            Locations.Relocate(button1);
+            Locations.Relocate(button2);
+            Locations.Relocate(button3);
+            Locations.Relocate(button4);
+            Locations.Relocate(button5);
+            Locations.Relocate(button6);
+            Locations.Relocate(button7);
+            Locations.Relocate(button8);
+            Locations.Relocate(button9);
+            Locations.Relocate(button10);
+            Locations.Relocate(label1);
         }
+
+        
     }
 }
