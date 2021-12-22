@@ -14,7 +14,7 @@ namespace Lab5.GUI
         public static Point Button6StartLocation = new(325, 295);
         public static Point Label1StartLocation = new(265, 128);
         public static Point Cell00StartLocation = new(265, 128);
-        public static Dictionary<string, Point> StartLocations = new ();
+        private static readonly Dictionary<string, Point> StartLocations = new ();
 
         public static void SetStartLocations()
         {

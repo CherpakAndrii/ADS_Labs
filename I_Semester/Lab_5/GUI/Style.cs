@@ -14,16 +14,16 @@ namespace Lab5.GUI
         public static Color P2SelectedCellColor = Color.Red;
         public static Color P2PassiveSelectedCellColor = Color.PaleVioletRed;
         public static Color PoisonBgColor = Color.Black;
-        public static Font PoisonFont = new ("Comic Sans MS", 12F, FontStyle.Italic, GraphicsUnit.Point, 204);
+        public static readonly Font PoisonFont = new ("Comic Sans MS", 12F, FontStyle.Italic, GraphicsUnit.Point, 204);
         public static Size FieldSzButtonSz = new (250, 60);
         public static Size GmModeButtonSz = new (183, 50);
         public static Size CellSize = new (50, 50);
         
         public static Size Label1Sz = new (370, 135);
         public static Size Form1WindowSz = new (900, 500);
-        public static Font ButtonFont = new ("Comic Sans MS", 15.75F, FontStyle.Italic, GraphicsUnit.Point, 204);
-        public static Font F1LabelBigFont = new ("Comic Sans MS", 72F, FontStyle.Italic, GraphicsUnit.Point, 204);
-        public static Font F2LabelFont = new ("Comic Sans MS", 25F, FontStyle.Italic, GraphicsUnit.Point, 204);
+        public static readonly Font ButtonFont = new ("Comic Sans MS", 15.75F, FontStyle.Italic, GraphicsUnit.Point, 204);
+        public static readonly Font F1LabelBigFont = new ("Comic Sans MS", 72F, FontStyle.Italic, GraphicsUnit.Point, 204);
+        public static readonly Font F2LabelFont = new ("Comic Sans MS", 25F, FontStyle.Italic, GraphicsUnit.Point, 204);
 
         
         public static void UpdateForm1ElementSize()

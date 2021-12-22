@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
+using Lab5.Algo;
 
 namespace Lab5.GUI
 {
@@ -33,15 +34,15 @@ namespace Lab5.GUI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            gm = new();
+            gm = new(this);
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            Field = new Button[Program.FieldSize - 1, Program.FieldSize];
-            for (int i = 0; i < Program.FieldSize - 1; i++)
+            Field = new Button[Game.FieldSize - 1, Game.FieldSize];
+            for (int i = 0; i < Game.FieldSize - 1; i++)
             {
-                for (int j = 0; j < Program.FieldSize; j++)
+                for (int j = 0; j < Game.FieldSize; j++)
                 {
                     Field[i, j] = new Button();
                     Field[i,j].Cursor = System.Windows.Forms.Cursors.Hand;
@@ -51,7 +52,7 @@ namespace Lab5.GUI
                         Locations.Cell00StartLocation.Y+(Style.CellSize.Height+1)*i);
                     Field[i,j].Name = $"{i}; {j}";
                     Field[i,j].Size = Style.CellSize;
-                    Field[i,j].TabIndex = i*(Program.FieldSize-1) + j + 1;
+                    Field[i,j].TabIndex = i*(Game.FieldSize-1) + j + 1;
                     Field[i,j].UseVisualStyleBackColor = false;
                     if (!(i==0 && j==0))
                     {

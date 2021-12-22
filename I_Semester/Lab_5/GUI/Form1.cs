@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Lab5.Algo;
 
 namespace Lab5.GUI
 {
@@ -17,23 +18,21 @@ namespace Lab5.GUI
 
         private void ChooseGmMode(object sender, EventArgs e)
         {
-            Button button = sender as Button;
-            if (button != null)
+            if (sender is Button button)
             {
-                Program.SinglePlay = (button.Name == "button1");
+                Game.SinglePlay = (button.Name == "button1");
                 ReloadComponent();
             }
         }
 
         private void ChooseSize(object sender, EventArgs e)
         {
-            Button button = sender as Button;
-            if (button != null)
+            if (sender is Button button)
             {
-                Program.FieldSize = (button.Name == "button3" ? 5 :
+                Game.FieldSize = (button.Name == "button3" ? 5 :
                     button.Name == "button4" ? 6 :
                     button.Name == "button5" ? 7 : 8);
-                if (Program.SinglePlay) ReloadComponent2();
+                if (Game.SinglePlay) ReloadComponent2();
                 else
                 {
                     Program.Form1Closed = false;
@@ -44,25 +43,27 @@ namespace Lab5.GUI
 
         private void ChooseDifficulty(object sender, EventArgs e)
         {
-            Button button = sender as Button;
-            if (button != null)
+            if (sender is Button button)
             {
-                Program.Difficulty = (button.Name == "button7" ? 1 :
+                Game.Difficulty = (button.Name == "button7" ? 1 :
                     button.Name == "button8" ? 2 :
                     button.Name == "button9" ? 3 : 4);
             }
             Program.Form1Closed = false;
             Close();
         }
-        
-        private void Form1_SizeChanged(object sender, EventArgs e)
+    }
+}
+
+
+        /*private void Form1_SizeChanged(object sender, EventArgs e)
         {
             Style.Form1WindowSz = ClientSize;
             Style.UpdateForm1ElementSize();
             UpdateForm1ElementLocation();
         }
         
-        private void UpdateForm1ElementLocation(){
+        /*private void UpdateForm1ElementLocation(){
             button1.Size = Style.GmModeButtonSz;
             button2.Size = Style.GmModeButtonSz;
             button3.Size = Style.FieldSzButtonSz;
@@ -81,8 +82,4 @@ namespace Lab5.GUI
             Locations.Relocate(button9);
             Locations.Relocate(button10);
             Locations.Relocate(label1);
-        }
-
-        
-    }
-}
+        }*/

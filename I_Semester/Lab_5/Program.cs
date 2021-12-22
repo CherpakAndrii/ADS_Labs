@@ -9,9 +9,8 @@ namespace Lab5
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
-        public static bool SinglePlay, toMenu = true, Form1Closed = false, Form2Closed = false;
-        public static int FieldSize;
-        public static int Difficulty;
+        public static bool ToMenu = true, Form1Closed, Form2Closed;
+       
         [STAThread]
         static void Main()
         {
@@ -21,14 +20,13 @@ namespace Lab5
             while (!Form1Closed && !Form2Closed)
             {
                 Form2Closed = true;
-                if (toMenu)
+                if (ToMenu)
                 {
                     Form1Closed = true;
                     Application.Run(new Form1());
                 }
-                toMenu = false;
+                ToMenu = false;
                 if (!Form1Closed) Application.Run(new Form2());
-               
             }
         }
     }
